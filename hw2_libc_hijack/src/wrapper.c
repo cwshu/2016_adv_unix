@@ -30,9 +30,9 @@ int open(const char *path, int oflag, ...){
     int ret;
 
     real_open = dlsym(RTLD_NEXT, "open");
-    ret = real_open(path, oflag, mode);
+    ret = real_open(path, oflag);
 
-    fprintf(log_file, "open[%s, %d, %d] = %d\n", path, oflag, mode, ret);
+    fprintf(log_file, "open[%s, %d] = %d\n", path, oflag, ret);
 
     return ret;
 }
